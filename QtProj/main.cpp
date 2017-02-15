@@ -2,9 +2,8 @@
 #include "MainWindow.h"
 #include <QtWidgets/QApplication>
 #include <iostream>
-#include <qmessagebox.h>
-#include <qstring.h>
-#include "MainWindowPrst.h"
+#include <QMessageBox>
+#include <QString>
 
 void init();
 
