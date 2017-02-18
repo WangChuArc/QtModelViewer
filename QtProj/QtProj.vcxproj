@@ -111,6 +111,7 @@
     <ClInclude Include="assimpModelLoad.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="GeneratedFiles\ui_QtProj.h" />
+    <ClInclude Include="Header.h" />
     <ClInclude Include="testcube.h" />
     <CustomBuild Include="MainWindow.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

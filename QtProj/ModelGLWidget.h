@@ -21,11 +21,11 @@ public:
     void loadModel();
 
     void keyPressEvent(QKeyEvent* pEvent);
-
     void mouseMoveEvent(QMouseEvent* pEvent);
     void mousePressEvent(QMouseEvent* pEvent);
-    //void wheelEvent(QWheelEvent* pEvent);
+    void wheelEvent(QWheelEvent* pEvent);
 
+    QSize m_lastTimeSize;
     global::OpenGLVerFuncs* m_pFunc;
     QList<modelHandle::SceneWrapShared> m_scenes;
     QOpenGLShaderProgram m_prog;

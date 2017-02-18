@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     pGLWidget = new ModelGLWidget(this);
     setCentralWidget(pGLWidget);
     connect();
+
+
+    resize(1024, 768);
 }
 
 void MainWindow::connect()

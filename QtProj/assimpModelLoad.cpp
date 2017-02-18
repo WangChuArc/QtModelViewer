@@ -156,13 +156,30 @@ namespace modelHandle
             _vertex.position.data[2] = pMeshSrc->mVertices[i].z;
 
             // normal
-            _vertex.normal.data[0] = pMeshSrc->mNormals[i].x;
-            _vertex.normal.data[1] = pMeshSrc->mNormals[i].y;
-            _vertex.normal.data[2] = pMeshSrc->mNormals[i].z;
+            if(pMeshSrc->mNormals != nullptr)
+            {
+                _vertex.normal.data[0] = pMeshSrc->mNormals[i].x;
+                _vertex.normal.data[1] = pMeshSrc->mNormals[i].y;
+                _vertex.normal.data[2] = pMeshSrc->mNormals[i].z;
+            }
+            else
+            {
+                _vertex.normal.data[0] = 0.0f;
+                _vertex.normal.data[1] = 0.0f;
+                _vertex.normal.data[2] = 0.0f;
+            }
 
             // texture coord
-            _vertex.textCoord.data[0] = pMeshSrc->mTextureCoords[0][i].x;
-            _vertex.textCoord.data[1] = pMeshSrc->mTextureCoords[0][i].y;
+            if(pMeshSrc->mTextureCoords[0] != nullptr)
+            {
+                _vertex.textCoord.data[0] = pMeshSrc->mTextureCoords[0][i].x;
+                _vertex.textCoord.data[1] = pMeshSrc->mTextureCoords[0][i].y;
+            }
+            else
+            {
+                _vertex.textCoord.data[0] = 0.0f;
+                _vertex.textCoord.data[1] = 0.0f;
+            }
 
             meshDst.m_vertexVec[i] = _vertex;
 
