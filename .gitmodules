@@ -1,0 +1,3 @@
+[submodule "QtProj/libs/CurryinginCpp"]
+	path = QtProj/libs/CurryinginCpp
+	url = https://github.com/WangChuArc/CurryinginCpp
