@@ -2,6 +2,7 @@
 #include "ModelGLWidget.h"
 #include "Render.h"
 #include "data.h"
+#include "debug.h"
 
 
 ModelGLWidget::ModelGLWidget(QWidget *p) : BaseType(p)
@@ -37,8 +38,6 @@ void ModelGLWidget::paintGL()
     m_pFunc->glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_prog.bind();
-
-    //QMatrix4x4 projection;
     
     QMatrix4x4 model = m_camera.m_model;
     model.scale(0.2);
@@ -49,10 +48,11 @@ void ModelGLWidget::paintGL()
 
     for (auto s : m_scenes)
     {
+        //debug
+        //static_aop_OGLDebug_before
         Render::draw(*s, m_prog);
+        //static_aop_OGLDebug_after
     }
-    Render::draw(TestCube(), m_prog, m_pFunc);
-
     m_prog.release();
 }
 

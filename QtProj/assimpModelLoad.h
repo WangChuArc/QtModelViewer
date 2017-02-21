@@ -26,7 +26,7 @@ namespace modelHandle
     template<>
     class ModelFactory<Lib::assimp>
     {
-        static constexpr aiTextureType libTextureTypes[] = { aiTextureType_AMBIENT, aiTextureType_DIFFUSE, aiTextureType_SPECULAR, aiTextureType_SHININESS, aiTextureType_HEIGHT, aiTextureType_NORMALS };
+        static constexpr aiTextureType libTextureTypes[] = { aiTextureType::aiTextureType_DISPLACEMENT, aiTextureType::aiTextureType_EMISSIVE,aiTextureType::aiTextureType_LIGHTMAP, aiTextureType::aiTextureType_OPACITY, aiTextureType::aiTextureType_REFLECTION,  aiTextureType_AMBIENT, aiTextureType_DIFFUSE, aiTextureType_SPECULAR, aiTextureType_SHININESS, aiTextureType_HEIGHT, aiTextureType_NORMALS };
     public:
         typedef Lib::assimp libType;
         explicit ModelFactory(const aiScene* pScene);

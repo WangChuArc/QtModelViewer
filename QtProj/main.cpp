@@ -4,6 +4,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QString>
+#include "debug.h"
 
 void init();
 
@@ -24,5 +25,6 @@ void init()
     fmt.setVersion(4, 3);
     fmt.setProfile(QSurfaceFormat::OpenGLContextProfile::CoreProfile);
     fmt.setRenderableType(QSurfaceFormat::RenderableType::OpenGL);
+    fmt.setOption(QSurfaceFormat::DebugContext);
     QSurfaceFormat::setDefaultFormat(fmt);
 }

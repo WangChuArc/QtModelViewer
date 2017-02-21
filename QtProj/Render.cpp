@@ -32,6 +32,20 @@ namespace Render
         GLuint shininessNr = 1;
         GLuint heightNr = 1;
         GLuint normalsNr = 1;
+
+        //// 如果没有diffuse纹理，显示白色
+        QImage white(1, 1, QImage::Format_RGBA8888);
+        white.fill(Qt::white);
+        QOpenGLTexture dftDiff(QOpenGLTexture::Target2D);
+        dftDiff.create();
+        dftDiff.setData(white);
+        dftDiff.setWrapMode(QOpenGLTexture::Repeat);
+        dftDiff.setMinificationFilter(QOpenGLTexture::NearestMipMapNearest);
+        dftDiff.setMagnificationFilter(QOpenGLTexture::Nearest);
+        dftDiff.bind(0);
+
+        prog.setAttributeValue("texture_diffuse1", 0);
+
         for (GLuint i = 0; i < mesh.m_textures.size(); i++)
         {
             auto& texture = mesh.m_textures[i]->m_texture;
@@ -68,6 +82,8 @@ namespace Render
             auto t = &mesh.m_textures[i]->m_texture;
             t->release(i);
         }
+        dftDiff.release(0);
+        dftDiff.destroy();
 
     }
 
